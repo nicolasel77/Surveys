@@ -50,6 +50,7 @@
     <Compile Include="App.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Clases\ConvertidorEquipoColor.cs" />
     <Compile Include="Clases\Datos.cs" />
     <Compile Include="Clases\Literals.cs" />
     <Compile Include="Clases\Mensajes.cs" />

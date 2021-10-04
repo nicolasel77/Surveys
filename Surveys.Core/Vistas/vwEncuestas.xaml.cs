@@ -12,13 +12,6 @@ namespace Surveys.Core.Vistas
         public vwEncuestas()
         {
             InitializeComponent();
-            //MessagingCenter.Subscribe<ContentPage, Encuesta>(this, Mensajes.NuevaEncuestaCompleta, (sender, args) =>
-            //{
-            //    //Lista_Encuestas.re
-            //    //{
-            //    //    Text = args.ToString()
-            //    //});
-            //});
         }
 
         private async void AddSurveyButton_Clicked(object sender, EventArgs e)
