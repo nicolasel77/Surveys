@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Surveys.Core.Clases"
+             x:Class="Surveys.Core.Vistas.vwEncuestas"
+             Title="Encuestas">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:Datos x:Key="datos"></local:Datos>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid BindingContext="{Binding Source={StaticResource datos}}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Text="+" Clicked="AddSurveyButton_Clicked"></Button>
+            <ListView x:Name="Lista_Encuestas" Grid.Row="1" ItemsSource="{Binding Encuestas}" SelectedItem="{Binding Encuesta_Seleccionada, Mode=TwoWay}"></ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
