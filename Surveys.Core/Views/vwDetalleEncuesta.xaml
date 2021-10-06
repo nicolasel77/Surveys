@@ -1,30 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Surveys.Core.ViewModels"
              x:Class="Surveys.Core.Vistas.vwDetalleEncuesta"
              Title="Nueva Encuesta">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:DetalleEncuestaVM x:Key="datos"></vm:DetalleEncuestaVM>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid Margin="10">
+        <Grid Margin="10" BindingContext="{Binding Source={StaticResource datos}}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <StackLayout>
                 <Label Text="Nombre:" FontSize="Subtitle"></Label>
-                <Entry x:Name="txtNombre" BackgroundColor="Gainsboro" Placeholder="Ingrese el nombre"></Entry>
+                <Entry BackgroundColor="Gainsboro" Text="{Binding Nombre, Mode=TwoWay}"></Entry>
                 <Label Text="Fecha de Nacimiento:" FontSize="Subtitle"></Label>
-                <DatePicker x:Name="dtFecha" Format="dd/MM/yyy"></DatePicker>
+                <DatePicker Format="dd/MM/yyy" Date="{Binding Fecha_Nacimiento, Mode=TwoWay}"></DatePicker>
                 <Label Text="Equipo Favorito:" FontSize="Subtitle"></Label>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
                         <ColumnDefinition Width="Auto"></ColumnDefinition>                        
                     </Grid.ColumnDefinitions>
-                    <Label x:Name="lblEquipo" FontSize="Subtitle" VerticalTextAlignment="Center" Padding="10" BackgroundColor="Gainsboro"></Label>
+                    <Label FontSize="Subtitle" VerticalTextAlignment="Center" Padding="10" BackgroundColor="Gainsboro"  Text="{Binding Equipo_Favorito}"></Label>
                     
-                    <Button Grid.Column="1" Text="..." Clicked="EquipoButton_Clicked"></Button>
+                    <Button Grid.Column="1" Text="..." Command="{Binding EquipoSeleccionadoCommand}"></Button>
                 </Grid>
             </StackLayout>
-            <Button Text="Aceptar" Grid.Row="1" Clicked="AceptarButton_Clicked" VerticalOptions="Fill"></Button>
+            <Button Text="Aceptar" Grid.Row="1" VerticalOptions="Fill" Command="{Binding FinEncuestaSeleccionadaCommand}"></Button>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

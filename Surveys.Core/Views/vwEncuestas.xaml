@@ -6,7 +6,7 @@
              Title="Encuestas">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:Datos x:Key="datos"></local:Datos>
+            <local:EncuestasVM x:Key="datos"></local:EncuestasVM>
             <local:ConvertidorEquipoColor x:Key="convertidor"></local:ConvertidorEquipoColor>
             <DataTemplate x:Key="EncuestaDataTemplate">
                 <ViewCell>
@@ -30,7 +30,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>                
             </Grid.RowDefinitions>
-            <Button Text="+" Clicked="AddSurveyButton_Clicked"></Button>
+            <Button Text="+" Command="{Binding NuevaEncuesta}"></Button>
             <ListView Grid.Row="1" ItemsSource="{Binding Encuestas}" SelectedItem="{Binding Encuesta_Seleccionada, Mode=TwoWay}" 
                       ItemTemplate="{StaticResource EncuestaDataTemplate}" HasUnevenRows="True"></ListView>
         </Grid>

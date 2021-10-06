@@ -1,14 +1,5 @@
-﻿using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using Xamarin.Forms;
 
 namespace Surveys.Core.Clases
@@ -32,9 +23,12 @@ namespace Surveys.Core.Clases
                 case "Ferrocarril Oeste":
                 case "Banfield":
                     color = Color.Green;
-                    break;                    
+                    break;
                 case "Racing":
                     color = Color.LightSkyBlue;
+                    break;
+                case "San Lorenzo":
+                    color = Color.BlueViolet;
                     break;
             }
 

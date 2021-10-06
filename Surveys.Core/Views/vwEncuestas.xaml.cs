@@ -1,6 +1,4 @@
 ﻿using Surveys.Core.Clases;
-using System;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,11 +10,15 @@ namespace Surveys.Core.Vistas
         public vwEncuestas()
         {
             InitializeComponent();
+
+            MessagingCenter.Subscribe<EncuestasVM>(this, Mensajes.NuevaEncuesta, async (sender) =>
+            {
+                await Navigation.PushAsync(new vwDetalleEncuesta());
+            });
+
+            
         }
 
-        private async void AddSurveyButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new vwDetalleEncuesta());
-        }
+
     }
 }

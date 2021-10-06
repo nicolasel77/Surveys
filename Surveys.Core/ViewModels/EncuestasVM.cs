@@ -1,5 +1,7 @@
 ﻿using Personas.Clases;
+using Surveys.Core.ViewModels;
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace Surveys.Core.Clases
@@ -7,19 +9,26 @@ namespace Surveys.Core.Clases
     /// <summary>
     /// Se hereda la clase Notificable para poder usar el evento OnPropertyChanged
     /// </summary>
-    public class Datos : Notificable
+    public class EncuestasVM : Notificable
     {
         /// <summary>
         /// Coleccion Observable para los datos
         /// </summary>
         private ObservableCollection<Encuesta> encuestas;
+        public ICommand NuevaEncuesta { get; set; }
 
-        public Datos()
+        public EncuestasVM()
         {
             Encuestas = new ObservableCollection<Encuesta>();
-            
-            //Nos subscribimos al "Centro de Mensajes" para poder estar al tanto de las encuestas nuevas que se vayan agregando.
-            MessagingCenter.Subscribe<ContentPage, Encuesta>(this, Mensajes.NuevaEncuestaCompleta, (sender, args) => { encuestas.Add(args); });
+
+            NuevaEncuesta = new Command(NuevaEncuestaCommmandExecute);
+                                    
+            MessagingCenter.Subscribe<DetalleEncuestaVM, Encuesta>(this, Mensajes.NuevaEncuestaCompleta, (sender, args) => { encuestas.Add(args); });
+        }
+
+        private void NuevaEncuestaCommmandExecute()
+        {
+            MessagingCenter.Send(this, Mensajes.NuevaEncuesta);
         }
 
         public ObservableCollection<Encuesta> Encuestas
@@ -34,7 +43,6 @@ namespace Surveys.Core.Clases
         }
 
         private Encuesta encuesta_Seleccionada;
-
         public Encuesta Encuesta_Seleccionada
         {
             get => encuesta_Seleccionada; set

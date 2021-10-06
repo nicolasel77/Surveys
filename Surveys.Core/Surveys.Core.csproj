@@ -50,18 +50,20 @@
     <Compile Include="App.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Clases\ConvertidorEquipoColor.cs" />
-    <Compile Include="Clases\Datos.cs" />
-    <Compile Include="Clases\Literals.cs" />
-    <Compile Include="Clases\Mensajes.cs" />
-    <Compile Include="Clases\Encuesta.cs" />
-    <Compile Include="Clases\Notificable.cs" />
+    <Compile Include="Converters\ConvertidorEquipoColor.cs" />
+    <Compile Include="ViewModels\DetalleEncuestaVM.cs" />
+    <Compile Include="ViewModels\EncuestasVM.cs" />
+    <Compile Include="Herramientas\Literals.cs" />
+    <Compile Include="Herramientas\Mensajes.cs" />
+    <Compile Include="Modelos\Encuesta.cs" />
+    <Compile Include="Herramientas\MyCommand.cs" />
+    <Compile Include="Herramientas\Notificable.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vistas\vwDetalleEncuesta.xaml.cs">
+    <Compile Include="Views\vwDetalleEncuesta.xaml.cs">
       <DependentUpon>vwDetalleEncuesta.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\vwEncuestas.xaml.cs">
+    <Compile Include="Views\vwEncuestas.xaml.cs">
       <DependentUpon>vwEncuestas.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -86,12 +88,12 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Vistas\vwEncuestas.xaml">
+    <EmbeddedResource Include="Views\vwEncuestas.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Vistas\vwDetalleEncuesta.xaml">
+    <EmbeddedResource Include="Views\vwDetalleEncuesta.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
